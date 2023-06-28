@@ -216,8 +216,9 @@ const MicrosoftLogin: React.FunctionComponent<MicrosoftLoginProps> = ({
         prompt,
       });
       log("Fetch Azure AD 'token' with popup SUCCEEDED", AuthenticationResult);
-      log("Fetch Graph API 'access_token' in silent mode STARTED");
-      getGraphAPITokenAndUser();
+      finalStep(AuthenticationResult);
+      // log("Fetch Graph API 'access_token' in silent mode STARTED");
+      // getGraphAPITokenAndUser();
     } catch (err) {
       log("Fetch Azure AD 'token' with popup FAILED", err, true);
       authCallback(err);
